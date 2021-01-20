@@ -62,7 +62,7 @@ def get_data(payload):
 			if not data:
 				 break
 			full_data += data
-		print(full_data)
+		#print(full_data)
 		return full_data
 	except Exception as e:
 		print(e)
@@ -93,11 +93,11 @@ def main():
 	
 	with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 		#QUESTION 3
-		s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+		#s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 		#bind socket to address
 		s.bind((HOST, PORT))
 		#set to listening mode
-		s.listen(2)
+		s.listen(10)
 
 		
 		
@@ -108,8 +108,11 @@ def main():
 			p.daemon = True
 			p.start()
 			print("Strated address:", p)
+			#p.join()
 			conn.close()
+
 		s.close()
 
 if __name__ == "__main__":
+	
 	main()

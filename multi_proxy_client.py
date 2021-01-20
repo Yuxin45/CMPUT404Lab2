@@ -33,6 +33,7 @@ def send_data(serversocket, payload):
         serversocket.sendall(payload.encode())
     except socket.error:
         print ('Send failed')
+        print(socket.error)
         sys.exit()
     print("Payload sent successfully")
 
